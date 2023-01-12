@@ -8,4 +8,4 @@ Numerical Methods and Computing
 -Secant
 -Interpolation
 
-
+Design and Analysis of Algorithm
