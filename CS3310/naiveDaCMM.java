@@ -1,29 +1,17 @@
 public class naiveDaCMM{
     public static void main(String[] args){
-        int arraySize = 1024;
-        double[][] array1 = new double[arraySize][arraySize];
-        double[][] array2 = new double[arraySize][arraySize];
+       double[][] array1 = {{2,0,-1,6},{3,7,8,0},{-5,1,6,-2},{8,0,1,7}};
+       double[][] array2 = {{0,1,6,3},{-2,8,7,1},{2,0,-1,0},{9,1,6,-2}};
+       int n = array2.length;
+       double[][] array4 = naiveMatrixMultiply(array1, array2, n);
+ 
+       for(int h = 0; h < array4.length; h++){
+           for(int l = 0; l < array4[0].length; l++){
+               System.out.print(array4[h][l] + " ");
+           }
+           System.out.println("");
+       }
 
-        for(int k = 0; k < arraySize; k++){
-            for(int r = 0; r< arraySize; r++){
-                array1[k][r] = 1;
-                array2[k][r] = 1;
-            }
-        }
-        long startTime = System.nanoTime();
-        int n = array2.length;
-        double[][] array4 = naiveMatrixMultiply(array1, array2, n);
-
-        /*
-        for(int h = 0; h < array4.length; h++){
-            for(int l = 0; l < array4[0].length; l++){
-                System.out.print(array4[h][l] + " ");
-            }
-            System.out.println("");
-        }
-        */
-        long endTime = System.nanoTime();
-        System.out.println(endTime - startTime);
     }
 
     public static double[][] naiveMatrixMultiply(double[][] array1, double[][] array2, int n){
@@ -50,13 +38,6 @@ public class naiveDaCMM{
                 add(naiveMatrixMultiply(subMatrix1_3, subMatrix2_2, n), naiveMatrixMultiply(subMatrix1_4, subMatrix2_4, n), array3, n, n, n);
 
             }
-
-            /*
-            array3[0][0] = naiveMatrixMultiply(array1[0][0], array2[0][0]) + naiveMatrixMultiply(array1[0][1], array2[1][0]);
-            array3[0][1] = naiveMatrixMultiply(array1[0][0], array2[0][1]) + naiveMatrixMultiply(array1[0][1], array2[1][1]);
-            array3[1][0] = naiveMatrixMultiply(array1[1][0], array2[0][0]) + naiveMatrixMultiply(array1[1][1], array2[1][0]);
-            array3[1][1] = naiveMatrixMultiply(array1[1][0], array2[0][1]) + naiveMatrixMultiply(array1[1][1], array2[1][1]);
-            */
         return array3;
     }
 
