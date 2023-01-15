@@ -1,3 +1,20 @@
+/* Example run of code:
+
+Enter number of equations: 3
+Enter coefficeints: 
+26 2 3 12.6
+Enter next coefficients: 
+3 27 1 -14.3
+Enter next coefficients: 
+2 3 17 6
+Enter your starting solution: 
+0 0 0
+Enter Error: 
+0.005
+Jacobi[1] or Gauss[2]?
+1
+
+ */
 import java.util.*;
 import java.io.*;
 public class JacobiGaussSeidel{
