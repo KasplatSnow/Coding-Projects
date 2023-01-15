@@ -1,3 +1,15 @@
+/*
+How to run code:
+
+Enter number of equations: 3
+Enter coefficients and b-value: 
+1 2 3
+Enter next coefficients and b-value: 
+4 5 6
+Enter next coefficients and b-value: 
+7 8 9
+
+*/
 import java.util.*;
 import java.io.*;
 public class CS3010_Gauss{
