@@ -1,30 +1,16 @@
 public class strassenMM{
     public static void main(String[] args){
-        int arraySize = 1024;
-        double[][] array1 = new double[arraySize][arraySize];
-        double[][] array2 = new double[arraySize][arraySize];
-
-        for(int k = 0; k < arraySize; k++){
-            for(int r = 0; r< arraySize; r++){
-                array1[k][r] = 1;
-                array2[k][r] = 1;
-            }
-        }
-        long startTime = System.nanoTime();
-        int n = array1.length;
-        double[][] array6 = strassen(array1, array2, n);
-
-        /*
-        for(int h = 0; h < array6.length; h++){
-            for(int l = 0; l < array6[0].length; l++){
-                System.out.print(array6[h][l] + " ");
-            }
-            System.out.println("");
-        }
-        */
-        long endTime = System.nanoTime();
-        System.out.println(endTime - startTime);
-
+       double[][] array1 = {{2,0,-1,6},{3,7,8,0},{-5,1,6,-2},{8,0,1,7}};
+       double[][] array2 = {{0,1,6,3},{-2,8,7,1},{2,0,-1,0},{9,1,6,-2}};
+       int n = array1.length;
+       double[][] array6 = strassen(array1, array2, n);
+ 
+       for(int h = 0; h < array6.length; h++){
+           for(int l = 0; l < array6[0].length; l++){
+               System.out.print(array6[h][l] + " ");
+           }
+           System.out.println("");
+       }
     }
 
     public static double[][] strassen(double[][] array1, double[][] array2, int n){
