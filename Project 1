@@ -1,1 +1,102 @@
 
+import java.util.*;
+
+public class task2 {
+	public static void main(String[] args) {
+		
+		//System.out.print("Enter String: ");
+		//Scanner scanner = new Scanner(System.in);
+		//String input = scanner.nextLine();
+		
+		String octinteger = "0o1_77";
+		String hexinteger = "0xe_";
+		boolean ok = true;
+		boolean underscoreNotPreceeds = true;
+		int i = 0;
+		
+		//octinteger
+		//loops through the substrings of the input
+		while(i < octinteger.length()) {
+			//checks the first character is 0
+			if(i == 0) {
+				System.out.println("Check 0");
+				if(!octinteger.substring(i,i+1).equals("0")) {
+					ok = false;
+					break;
+				}
+			}
+			//checks the second character is o or O
+			else if(i == 1) {
+				System.out.println("Check 1");
+				if(!octinteger.substring(i,i+1).equalsIgnoreCase("o")) {
+					ok = false;
+					break;				
+				}
+			}
+			//checks if the remaining characters are _ or 0..7
+			//underscoreNotPreceeds is true if there are no _ before the current index
+			//if underscoreNotPreceeds is false and the current index is a _, then the string is not accepted
+			else if(i > 1) {
+				System.out.println("Check else");
+				if(octinteger.substring(i,i+1).equals("0") || octinteger.substring(i,i+1).equals("1") || octinteger.substring(i,i+1).equals("2") || octinteger.substring(i,i+1).equals("3") || octinteger.substring(i,i+1).equals("4") || octinteger.substring(i,i+1).equals("5") || octinteger.substring(i,i+1).equals("6") || octinteger.substring(i,i+1).equals("7")) {
+					underscoreNotPreceeds = true;
+				}
+				else if(octinteger.substring(i,i+1).equals("_") && underscoreNotPreceeds) {
+					underscoreNotPreceeds = false;
+				}
+				else {
+					ok = false;
+					break;
+				}
+			}
+			i++;
+		}
+		
+		System.out.println(ok);
+		
+		
+		ok = true;
+		underscoreNotPreceeds = true;
+		i = 0;
+		//hexinteger
+		//loops through the substrings of the input
+		while(i < hexinteger.length()) {
+			//checks if the first character is 0
+			if(i == 0) {
+				System.out.println("Check 0");
+				if(!hexinteger.substring(i,i+1).equals("0")) {
+					ok = false;
+					break;
+				}
+			}
+			//checks if the second character is x or X
+			else if(i == 1) {
+				System.out.println("Check 1");
+				if(!hexinteger.substring(i,i+1).equalsIgnoreCase("x")) {
+					ok = false;
+					break;				
+				}
+			}
+			//checks if the remaining characters are _ or 0..7
+			//underscoreNotPreceeds is true if there are no _ before the current index
+			//if underscoreNotPreceeds is false and the current index is a _, then the string is not accepted
+			else if(i > 1) {
+				System.out.println("Check else");
+				if(hexinteger.substring(i,i+1).equalsIgnoreCase("a") || hexinteger.substring(i,i+1).equalsIgnoreCase("b") || hexinteger.substring(i,i+1).equalsIgnoreCase("c") || hexinteger.substring(i,i+1).equalsIgnoreCase("d") || hexinteger.substring(i,i+1).equalsIgnoreCase("e") || hexinteger.substring(i,i+1).equalsIgnoreCase("f")) {
+					underscoreNotPreceeds = true;
+				}
+				else if(hexinteger.substring(i,i+1).equals("_") && underscoreNotPreceeds) {
+					underscoreNotPreceeds = false;
+				}
+				else {
+					ok = false;
+					break;
+				}
+			}
+			i++;
+		}
+		
+		System.out.println(ok);
+
+	}
+}
